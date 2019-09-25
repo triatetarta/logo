@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="three quarters">
+    <title>three quarters - development</title>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- bootstrap cdns -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i"
+        rel="stylesheet">
+
+    <!-- text reveal script -->
+    <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- start of navigation bar -->
+        <nav>
+            <span id="brand">
+                <a href="index.html">
+                    <div class="circle"></div>
+                </a>
+            </span>
+
+            <ul id="menu">
+                <li class="home">
+                    <a class="home-link" href="index.html">home //</a>
+                </li>
+                <li class="portfolio">
+                    <a class="port-link" href="index.html">portfolio //</a>
+                </li>
+                <li class="about">
+                    <a class="about-link" href="#">about //</a>
+                </li>
+            </ul>
+
+            <div id="toggle">
+                <div class="span">menu</div>
+            </div>
+
+        </nav>
+
+        <div id="resize">
+            <div class="close-btn">close</div>
+
+            <ul id="menu">
+                <li><a href="index.html">home<span>.</span></a></li>
+                <li><a href="work.html">portfolio<span>.</span></a></li>
+                <li><a href="about.html">about<span>.</span></a></li>
+            </ul>
+        </div>
+        <!--------------- navbar ends here --------------->
+
+
+        <!--------------- text reveal starts here --------------->
+        <div class="reveal">
+            <div class="header">
+                <h1 class="data">three quarters</h1>
+            </div>
+
+            <div class="header2">
+                <h2 class="line anim-typewriter">Front-end Web Developer</h2>
+            </div>
+        </div>
+
+
+        <div class="scroll-down"></div>
+
+
+
+
+
+
+
+        <script type="text/javascript">
+
+            const text = baffle(".data");
+            text.set({
+                characters: '█/ ▒░█▓░ ▓▓>▒▒ ▒/▓ █░░<█ <▓█> ▓▒▓ ░█▒▒ ▒▒░',
+                speed: 120
+            });
+            text.start();
+            text.reveal(4000);
+        </script>
+        <!-- greensock cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script type="text/javascript">
+
+            // navigation starts here
+
+            $("#toggle").click(function () {
+                $(this).toggleClass('on');
+                $("#resize").toggleClass("active");
+            });
+
+            $("#resize ul li a").click(function () {
+                $(this).toggleClass('on');
+                $("#resize").toggleClass("active");
+            });
+
+            $(".close-btn").click(function () {
+                $(this).toggleClass('on');
+                $("#resize").toggleClass("active");
+            });
+
+            // navigation ends here
+
+            // nav animation
+
+            TweenMax.from("#brand", 1, {
+                delay: 0.4,
+                y: 10,
+                opacity: 0,
+                ease: Expo.easeInOut
+            })
+
+            TweenMax.staggerFrom("#menu li a", 1, {
+                delay: 0.4,
+                opacity: 0,
+                ease: Expo.easeInOut
+            }, 0.1);
+
+            // nav animation ends
+
+            new WOW().init();
+
+        </script>
+</body>
+
+</html>
